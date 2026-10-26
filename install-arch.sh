@@ -113,6 +113,30 @@ pre_config_actions() {
 # New Variables: none                                                          #
 ################################################################################
 post_config_actions() {
+	local pacman_conf=${ROOTFS_DIRECTORY}/etc/pacman.conf
+
+	msg -tn "Disabling pacman download sandbox..."
+
+	# pacman 7+ downloads files inside a Landlock sandbox, which is
+	# unsupported under proot/Termux and fails with:
+	#   "restricting filesystem access failed because Landlock is not
+	#    supported by the kernel!"
+	# Disable the sandbox so packages can be synced and installed.
+	if [[ -f ${pacman_conf} ]]; then
+		sed -i 's/^#DisableSandbox/DisableSandbox/' "${pacman_conf}"
+		if ! grep -q '^DisableSandbox' "${pacman_conf}"; then
+			sed -i '/^\[options\]/a DisableSandbox' "${pacman_conf}"
+		fi
+	fi
+
+	if grep -q '^DisableSandbox' "${pacman_conf}"; then
+		cursor -u1
+		msg -ts "Pacman download sandbox disabled"
+	else
+		cursor -u1
+		msg -te "Failed to disable pacman download sandbox"
+	fi
+
 	if [[ -f ${ROOTFS_DIRECTORY}/etc/locale.gen && -x ${ROOTFS_DIRECTORY}/sbin/locale-gen ]]; then
 		msg -tn "Generating locales..."
 		sed -i -E 's/#[[:space:]]?(en_US.UTF-8[[:space:]]+UTF-8)/\1/g' "${ROOTFS_DIRECTORY}"/etc/locale.gen
