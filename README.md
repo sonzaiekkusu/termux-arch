@@ -5,24 +5,24 @@
 </div>
 
 <p align="center">
-	<a href="https://github.com/jorexdeveloper/termux-arch/stargazers">
+	<a href="https://github.com/sonzaiekkusu/termux-arch/stargazers">
 		<img
-			src="https://img.shields.io/github/stars/jorexdeveloper/termux-arch?colorA=1d1f21&colorB=1793d1&style=for-the-badge"
+			src="https://img.shields.io/github/stars/sonzaiekkusu/termux-arch?colorA=1d1f21&colorB=1793d1&style=for-the-badge"
          alt="stars">
 	</a>
-	<a href="https://github.com/jorexdeveloper/termux-arch/issues">
+	<a href="https://github.com/sonzaiekkusu/termux-arch/issues">
 		<img
-			src="https://img.shields.io/github/issues/jorexdeveloper/termux-arch?colorA=1d1f21&colorB=29a8db&style=for-the-badge"
+			src="https://img.shields.io/github/issues/sonzaiekkusu/termux-arch?colorA=1d1f21&colorB=29a8db&style=for-the-badge"
          alt="issues">
 	</a>
-	<a href="https://github.com/jorexdeveloper/termux-arch/contributors">
+	<a href="https://github.com/sonzaiekkusu/termux-arch/contributors">
 		<img
-			src="https://img.shields.io/github/contributors/jorexdeveloper/termux-arch?colorA=1d1f21&colorB=5da9dd&style=for-the-badge"
+			src="https://img.shields.io/github/contributors/sonzaiekkusu/termux-arch?colorA=1d1f21&colorB=5da9dd&style=for-the-badge"
          alt="contributors">
 	</a>
 	<a href="http://os.archlinuxarm.org/os">
 		<img
-			src="https://img.shields.io/badge/dynamic/json?label=Status%20&query=$.status&url=https%3A%2F%2Fraw.githubusercontent.com%2Fjorexdeveloper%2Ftermux-arch%2Fmain%2Fstatus.json&color=lightgray&logo=archlinux&logoSize=auto&style=for-the-badge"
+			src="https://img.shields.io/badge/dynamic/json?label=Status%20&query=$.status&url=https%3A%2F%2Fraw.githubusercontent.com%2Fsonzaiekkusu%2Ftermux-arch%2Fmain%2Fstatus.json&color=lightgray&logo=archlinux&logoSize=auto&style=for-the-badge"
          alt="status">
 	</a>
 </p>
@@ -86,7 +86,7 @@ Download and install the [Termux](https://github.com/termux/termux-app/releases/
 3. Download the install script
 
    ```bash
-   curl -fsSLO https://raw.githubusercontent.com/jorexdeveloper/termux-arch/main/install-arch.sh
+   curl -fsSLO https://raw.githubusercontent.com/sonzaiekkusu/termux-arch/main/install-arch.sh
    ```
 
 4. Execute the install script
@@ -105,7 +105,7 @@ It's probably a good idea to inspect any install script from projects you don't 
 If you are lazy like me, you can just copy and paste the commands below in Termux.
 
 ```bash
-pkg update -y && pkg upgrade -y && pkg install -y curl && curl -fsSLO https://raw.githubusercontent.com/jorexdeveloper/termux-arch/main/install-arch.sh && bash install-arch.sh
+pkg update -y && pkg upgrade -y && pkg install -y curl && curl -fsSLO https://raw.githubusercontent.com/sonzaiekkusu/termux-arch/main/install-arch.sh && bash install-arch.sh
 ```
 
 ## Launch and Set Up
@@ -269,7 +269,7 @@ arch --uninstall
 
 ## FAQ
 
-If you encountered some hiccups during the installation or have some burning questions, you are probably not the first one. Feel free to document them in the [issues section](https://github.com/jorexdeveloper/termux-arch/issues "View the issues section.").
+If you encountered some hiccups during the installation or have some burning questions, you are probably not the first one. Feel free to document them in the [issues section](https://github.com/sonzaiekkusu/termux-arch/issues "View the issues section.").
 
 However, a few frequently asked questions have been answered below.
 
