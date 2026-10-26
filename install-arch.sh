@@ -289,17 +289,18 @@ DISTRO_REPOSITORY=termux-arch
 KERNEL_RELEASE=$(uname -r)
 VERSION_NAME=latest
 
-SHASUM_CMD=md5sum
-TRUSTED_SHASUMS=$(
-	cat <<-EOF
-		93590174e5fe05c5b98ef50c23f61e84  ArchLinuxARM-armv7-latest.tar.gz
-		bae2eae185fc81659948339333c7752c  ArchLinuxARM-aarch64-latest.tar.gz
-	EOF
-)
-
 ARCHIVE_STRIP_DIRS=0 # directories stripped by tar when extracting rootfs archive
 BASE_URL=http://os.archlinuxarm.org/os
 TERMUX_FILES_DIR=/data/data/com.termux/files
+
+SHASUM_CMD=md5sum
+# Fetch the checksums directly from the Arch Linux ARM server so the archive
+# is always verified against the current values instead of hardcoded ones.
+TRUSTED_SHASUMS=$(
+	for arch in armv7 aarch64; do
+		curl -fsSL "${BASE_URL}/ArchLinuxARM-${arch}-latest.tar.gz.md5"
+	done
+)
 
 DISTRO_SHORTCUT=${TERMUX_FILES_DIR}/usr/bin/arch
 DISTRO_LAUNCHER=${TERMUX_FILES_DIR}/usr/bin/archlinux
