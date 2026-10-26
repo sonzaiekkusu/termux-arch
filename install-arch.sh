@@ -310,7 +310,10 @@ set_up_browser() {
 DISTRO_NAME="Arch Linux ARM"
 PROGRAM_NAME=$(basename "${0}")
 DISTRO_REPOSITORY=termux-arch
-KERNEL_RELEASE=$(uname -r)
+# Fake the full uname string (proot kompat format) so the guest hostname is
+# "arch" instead of Android's "localhost":
+#   \sysname\nodename\release\version\machine\domainname\hwcap\
+KERNEL_RELEASE="\\Linux\\arch\\$(uname -r)\\$(uname -v)\\$(uname -m)\\localdomain\\-1\\\\"
 VERSION_NAME=latest
 
 ARCHIVE_STRIP_DIRS=0 # directories stripped by tar when extracting rootfs archive
